@@ -1,46 +1,27 @@
-body {
-    background-color: rgb(45, 11, 45); /* Eliminamos la transparencia */
-    color: white; /* Cambiamos a blanco para que se lea mejor sobre el púrpura */
-    font-family: Arial, sans-serif;
+html, body {
+    height: 100%;
     margin: 0;
-    min-height: 100vh; /* Asegura que el fondo cubra toda la pantalla */
-    padding: 20px;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-.container-navbar {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+body {
+    position: relative;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
 }
 
-.links {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.links a {
-    color: #333;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-.links a:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-}
 
 .main-title {
     font-size: 3rem;           /* Un tamaño más imponente */
     text-align: center;        /* Centrado perfecto */
     color: white;              /* Blanco para que resalte sobre el púrpura */
-    margin-top: 40px;
+    margin-top: 0;
     margin-bottom: 20px;
-    letter-spacing: -1px;      /* Estilo más moderno y compacto */
+    letter-spacing: 0px;       /* Space Mono tiene mejor espaciado */
     text-transform: uppercase; /* Todo en mayúsculas para darle fuerza */
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
     
     /* Sombra suave para darle profundidad */
     text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
@@ -70,31 +51,29 @@ header {
 }
 
 
-/* Estilo base del botón */
 .btn-nav {
-    background-color: #ff00ff; /* Rosa neón para contrastar con el púrpura */
+    background-color: #60058a; /* Magenta más oscuro y menos brillante */
     color: white;
     padding: 12px 24px;
     border: none;
-    border-radius: 50px; /* Bordes redondeados tipo píldora */
+    border-radius: 50px;
     font-size: 1rem;
     font-weight: bold;
     text-transform: uppercase;
     cursor: pointer;
     transition: all 0.3s ease;
-    display: block;
-    box-shadow: 0 4px 15px rgba(255, 0, 255, 0.3);
+    box-shadow: 0 4px 15px rgba(187, 0, 187, 0.3);
 }
 
-/* Efecto al pasar el ratón */
 .btn-nav:hover {
-    background-color: #d400d4;
-    transform: translateY(-3px); /* Se eleva un poquito */
-    box-shadow: 0 6px 20px rgba(255, 0, 255, 0.5);
+    background-color: #990099;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(187, 0, 187, 0.4);
 }
 
-/* Efecto al hacer clic */
 .btn-nav:active {
     transform: translateY(1px);
-    box-shadow: 0 2px 10px rgba(255, 0, 255, 0.3);
+    box-shadow: 0 2px 10px rgba(187, 0, 187, 0.2);
 }
+
+

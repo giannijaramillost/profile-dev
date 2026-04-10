@@ -1,0 +1,156 @@
+
+.contact-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: #ede2ff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.contact-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background-color: #fff;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  background-color: #f0f7ff;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+.btn-submit-group {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.btn-text {
+  background-color: #bb00bb;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-arrow-circle {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  background-color: #bb00bb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 0.5rem;
+  color: white;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-arrow-circle svg {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  transition: all 0.5s ease-in-out;
+}
+
+.btn-arrow-circle svg:first-child {
+  transform: translateX(0);
+}
+
+.btn-arrow-circle svg:last-child {
+  transform: translateX(-40px);
+}
+
+/* Hover effect */
+.btn-submit-group:hover .btn-text {
+  background-color: #e0aaff;
+  color: #bb00bb;
+}
+
+.btn-submit-group:hover .btn-arrow-circle {
+  background-color: #e0aaff;
+  color: #bb00bb;
+}
+
+.btn-submit-group:hover .btn-arrow-circle svg:first-child {
+  transform: translateX(40px);
+}
+
+.btn-submit-group:hover .btn-arrow-circle svg:last-child {
+  transform: translateX(0);
+}
+
+/* Active state */
+.btn-submit-group:active {
+  transform: scale(0.98);
+}
+
+
+
+
+/* Responsividad para móviles */
+@media (max-width: 600px) {
+  .contact-container {
+    margin: 1.5rem;
+    padding: 1.5rem;
+  }
+
+  .contact-title {
+    font-size: 1.8rem;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

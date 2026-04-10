@@ -1,3 +1,5 @@
+#AI instructions for GitHub Copilot
+.github/copilot-instructions.md
 ./env
 # Logs
 logs
@@ -68,6 +70,7 @@ web_modules/
 
 # dotenv environment variable files
 .env
+.env.local
 .env.*
 !.env.example
 
@@ -163,3 +166,5 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.vercel
+.env*.local

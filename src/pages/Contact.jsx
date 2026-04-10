@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './Contact.css';
 
 const Contactme = () => {
   const [form, setForm] = useState({
@@ -7,6 +9,8 @@ const Contactme = () => {
     subject: '',
     message: '',
   });
+  
+  const navigate = useNavigate();
 
   const handleOnchange = (event) => {
     const { name, value } = event.target;
@@ -17,39 +21,84 @@ const Contactme = () => {
     console.log(form);
   };
 
+  const handleSendEmail = async (e) => {
+    e.preventDefault();
+    const data = await fetch('/api/server', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: form.name,
+        email: form.email,
+        message: form.message,
+        subject: form.subject,
+      }),
+    });
+
+    const res = await data.json();
+    console.log(res);
+  };
+
   return (
-    <div>
-      Contactme
-      <div>
-        <div style={{ display: 'flex', gap: '20px' }}>
+    <div className="contact-container">
+      <h1 className="contact-title">Contáctame</h1>
+      
+      <form className="contact-form" onSubmit={handleSendEmail}>
+        <div className="form-row">
+          <div className="form-group">
+            <input
+              name="name"
+              type="text"
+              placeholder="Tu nombre"
+              value={form.name}
+              onChange={handleOnchange}
+            />
+          </div>
+          <div className="form-group">
+            <input
+              name="email"
+              type="email"
+              placeholder="Tu email"
+              value={form.email}
+              onChange={handleOnchange}
+            />
+          </div>
+        </div>
+
+        <div className="form-group">
           <input
-            name="name"
+            name="subject"
             type="text"
-            value={form.name}
-            onChange={handleOnchange}
-          />
-          <input
-            name="email"
-            type="email"
-            value={form.email}
+            placeholder="Asunto"
+            value={form.subject}
             onChange={handleOnchange}
           />
         </div>
-        <div style={{ paddingTop: '20px' }}>
+
+        <div className="form-group">
           <textarea
             name="message"
-            type="message"
-            rows="10"
-            cols="50"
+            placeholder="Tu mensaje"
             value={form.message}
             onChange={handleOnchange}
           />
         </div>
-        <button style={{ width: '140px', height: '40px' }} onClick={handleSendEmail}>
-          Contact Me
+
+        <button type="submit" className="btn-submit-group">
+          <span className="btn-text">Contact Me</span>
+          <div className="btn-arrow-circle">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M7 17L17 7M17 7H7M17 7V17" />
+            </svg>
+          </div>
         </button>
-      </div>
-      <button>Go Back</button>
+      </form>
+
+      <button className="btn-nav" onClick={() => navigate("/")}>
+        Go Home
+      </button>
     </div>
   );
 };

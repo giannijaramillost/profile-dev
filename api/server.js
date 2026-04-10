@@ -8,14 +8,16 @@ const handler = async (req, res) => {
   }
 
   try {
-    const { name, message, email } = req.body;
+    const { name, message, email, subject } = req.body;
 
     const data = await resend.emails.send({
       from: 'Acme <onboarding@resend.dev>',
       to: 'giannixavier10@gmail.com',
-      subject: 'hello world',
-      html: `<strong>it works!</strong>
-      <strong>${message}</strong>`,
+      subject: subject || 'Nuevo mensaje de contacto',
+      html: `<p><strong>De:</strong> ${email}</p>
+       <p><strong>Nombre:</strong> ${name}</p>
+       <p><strong>Asunto:</strong> ${subject}</p>
+       <p><strong>Mensaje:</strong> ${message}</p>`,
     });
 
     return res.status(200).json({ data });
@@ -23,22 +25,5 @@ const handler = async (req, res) => {
     return res.status(502).json({ error });
   }
 };
-
-const handleSendEmail = async (e) => {
-    e.preventDefault();
-    const data = await fetch('/api/server', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-            name: form.name,
-            email: form.email,
-            message: form.message
-        })
-    });
-    const res = await data.json();
-    console.log(res);
-}
 
 export default handler;

@@ -1,48 +1,41 @@
-/* Contenedor principal de la Navbar */
+/* Navbar.css */
+
 .container-navbar {
-    display: flex;
-    justify-content: center; /* Centra el menú horizontalmente */
-    align-items: center;
-    padding: 1.5rem 0;
-    background-color: #f8f9fa; /* Un gris muy claro de fondo */
-    border-bottom: 1px solid #e0e0e0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    background-color: #b677f1;
+    padding: 15px 30px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 32px rgba(187, 0, 187, 0.15);
 }
 
-/* El contenedor de los enlaces */
 .links {
     display: flex;
-    gap: 30px; /* Espacio entre cada link */
+    gap: 30px;
+    justify-content: center;
 }
 
-/* Estilo para los párrafos que envuelven los links */
-.links p {
-    margin: 0;
-    padding: 0;
-}
-
-/* Estilo para los enlaces (etiqueta <a> de React Router) */
 .links a {
+    color: #ffffff;
     text-decoration: none;
-    color: #333;
     font-weight: 600;
-    font-family: sans-serif;
-    font-size: 1.1rem;
+    padding: 8px 0;
     transition: all 0.3s ease;
-    padding: 8px 12px;
-    border-radius: 6px;
+    border-bottom: 2px solid transparent;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
-/* Efecto al pasar el mouse (Hover) */
 .links a:hover {
-    color: #007bff; /* Color azul */
-    background-color: #e7f1ff; /* Fondo azul clarito */
+    color: #bb00bb;
+    border-bottom-color: #bb00bb;
+    text-shadow: 0 2px 12px rgba(187, 0, 187, 0.5);
 }
 
-/* Estilo para el contenido que viene debajo (el children/Outlet) */
-/* Añadimos un poco de aire para que no se pegue a la navbar */
+.links a.active {
+    color: #bb00bb;
+    border-bottom-color: #bb00bb;
+    text-shadow: 0 2px 12px rgba(187, 0, 187, 0.5);
+}
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

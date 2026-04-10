@@ -14,7 +14,7 @@ const Hero = () => {
 
       </p>
 
-      <p>
+      <p className="sub-text">
 
         Full-stack developer specializing in building high-performance, visually
 
